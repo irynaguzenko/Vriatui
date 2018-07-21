@@ -19,6 +19,6 @@ public class Profile {
     private String rhesusFactor;
 
     enum Gender {
-        MALE, FEEMALE
+        MALE, FEMALE
     }
 }

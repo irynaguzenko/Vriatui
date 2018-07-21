@@ -15,11 +15,11 @@ public class IncidentInfo {
     private Address address;
 
     public IncidentInfo(Incident incident, Profile profile) {
-        this.id = incident.id;
-        this.location = incident.location;
-        this.problem = incident.problem;
-        this.happenAt = incident.happenAt;
+        this.id = incident.getId();
+        this.location = incident.getLocation();
+        this.problem = incident.getProblem();
+        this.happenAt = incident.getHappenAt();
         this.patientInfo = new PatientInfo(profile);
-        this.address = incident.happenInAddress;
+        this.address = incident.getHappenInAddress();
     }
 }

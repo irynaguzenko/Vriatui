@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 @Data
 public class Incident {
     @Id
-    String id;
-    GeoJsonPoint location;
-    Address happenInAddress;
-    Boolean happenAtHome;
-    String problem;
-    LocalDateTime happenAt;
-    String profileId;
+    private String id;
+    private GeoJsonPoint location;
+    private Address happenInAddress;
+    private boolean happenAtHome;
+    private String problem;
+    private LocalDateTime happenAt;
+    private String profileId;
 }

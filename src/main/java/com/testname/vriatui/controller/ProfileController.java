@@ -5,6 +5,7 @@ import com.testname.vriatui.model.Profile;
 import com.testname.vriatui.service.ProfileService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/profile")
 public class ProfileController {

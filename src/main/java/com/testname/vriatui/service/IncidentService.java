@@ -21,7 +21,7 @@ public class IncidentService {
 
     public Incident create(Incident incident) {
         incident.setHappenAt(LocalDateTime.now());
-        if (incident.getHappenAtHome()) {
+        if (incident.isHappenAtHome()) {
             Profile profile = profileService.findOne(incident.getProfileId());
             incident.setHappenInAddress(profile.getAddress());
         }
