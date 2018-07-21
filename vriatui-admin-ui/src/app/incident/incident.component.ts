@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Incident } from '../models/incident';
 
 @Component({
   selector: 'app-incident',
@@ -6,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./incident.component.css']
 })
 export class IncidentComponent implements OnInit {
-  isExpanded: boolean;
-  model: Incident;
+  isExpanded: boolean = false;
+  @Input() model: Incident;
 
-  constructor(model: Incident) {
-    this.model = model;
+  constructor() {
   }
 
   ngOnInit() {

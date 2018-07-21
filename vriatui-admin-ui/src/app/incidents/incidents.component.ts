@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IncidentsService } from '../incidents.service';
+import { IncidentsList } from '../models/incidentsList';
 
 @Component({
   selector: 'app-incidents',
@@ -8,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class IncidentsComponent implements OnInit {
   model : IncidentsList;
 
-  constructor(model : IncidentsList) {
-    this.model = model;
+  constructor(private incidentsService : IncidentsService) {
   }
 
   ngOnInit() {
+    this.model = this.incidentsService.getIncidents(0);
   }
 
 }

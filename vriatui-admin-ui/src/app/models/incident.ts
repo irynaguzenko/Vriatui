@@ -1,3 +1,6 @@
-class Incident {
-    location: string
+export class Incident {
+    location: string;
+
+    constructor() {
+    }
 }
