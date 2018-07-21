@@ -15,7 +15,7 @@ public class IncidentController {
     }
 
     @PostMapping
-    public Incident create(Incident incident) {
+    public String create(@RequestBody Incident incident) {
         return incidentService.create(incident);
     }
 

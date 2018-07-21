@@ -2,9 +2,7 @@ package com.testname.vriatui.controller;
 
 import com.testname.vriatui.model.Profile;
 import com.testname.vriatui.service.ProfileService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/profile")
@@ -16,7 +14,12 @@ public class ProfileController {
     }
 
     @PostMapping
-    public Profile create(Profile profile) {
+    public Profile create(@RequestBody Profile profile) {
         return profileService.create(profile);
+    }
+
+    @GetMapping
+    public Profile get(@RequestParam("id") String profileId) {
+        return profileService.findOne(profileId);
     }
 }

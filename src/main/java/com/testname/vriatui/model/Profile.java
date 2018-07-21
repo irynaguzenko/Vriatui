@@ -12,12 +12,11 @@ public class Profile {
     String id;
     String firstName;
     String lastName;
-    LocalDate birthday;
+    Integer yearOfBirth;
     Gender gender;
     String diseases;
     Set<String> phonesToNotify;
     Address address;
-    Set<Incident> incidents;
 
     enum Gender {
         MALE, FEEMALE
