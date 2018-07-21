@@ -3,11 +3,11 @@ import { Address } from "./address";
 
 export class Incident {
     id: string;
-    location: string; // GeoJsonPoint
+    location: Location; // GeoJsonPoint
     address: Address;
     problem : string;
     happenAt: Date; //LocalDateTime
-    patientInfo : Profile;
+    patient : Profile;
 
     constructor() {
     }

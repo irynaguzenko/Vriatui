@@ -1,16 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("bootstrap.css");
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 
-.incidents-block {
-    border:2px solid #ffffff;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
+.table-header{
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
-.incidents-block:hover {
-    border:4px solid #ffffff;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
+.all-incidents-table{
+    width: 100%;
 }

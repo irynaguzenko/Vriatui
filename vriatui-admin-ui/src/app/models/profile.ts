@@ -6,10 +6,8 @@ export class Profile {
     id: string;
     firstName : string;
     lastName : string;
-    birthday : Date; //LocalDate
+    yearOfBirth : number;
     gender : Genders;
     diseases : string;
-    phonesToNotify: string;
-    address: Address;
-    incidents : Array<Incident>;
+    rhesusFactor : string;
 }

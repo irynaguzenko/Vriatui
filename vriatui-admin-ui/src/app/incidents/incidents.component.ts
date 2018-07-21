@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IncidentsService } from '../incidents.service';
-import { IncidentsList } from '../models/incidentsList';
+import { IncidentsDataSource } from '../incidents-data-source';
 
 @Component({
   selector: 'app-incidents',
@@ -8,13 +8,15 @@ import { IncidentsList } from '../models/incidentsList';
   styleUrls: ['./incidents.component.css']
 })
 export class IncidentsComponent implements OnInit {
-  model : IncidentsList;
+  dataSource : IncidentsDataSource;
+  displayedColumns= ["address", "name", "problem", "gender", "diseases", "yearOfBirth", "location" ];
 
   constructor(private incidentsService : IncidentsService) {
   }
 
   ngOnInit() {
-    this.model = this.incidentsService.getIncidents(0);
+    this.dataSource = new IncidentsDataSource(this.incidentsService);
+    this.dataSource.loadData(0);
   }
 
 }
