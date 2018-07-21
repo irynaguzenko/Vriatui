@@ -2,13 +2,11 @@ package com.testname.vriatui.service;
 
 import com.testname.vriatui.exception.ObjectNotFoundException;
 import com.testname.vriatui.model.Incident;
-import com.testname.vriatui.model.IncidentInfo;
+import com.testname.vriatui.model.IncidentRequest;
 import com.testname.vriatui.model.Profile;
 import com.testname.vriatui.repository.IncidentRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-
-import java.time.LocalDateTime;
 
 public class IncidentService {
     private final IncidentRepository incidentRepository;
@@ -19,23 +17,25 @@ public class IncidentService {
         this.profileService = profileService;
     }
 
-    public Incident create(Incident incident) {
-        incident.setHappenAt(LocalDateTime.now());
-        if (incident.isHappenAtHome()) {
-            Profile profile = profileService.findOne(incident.getProfileId());
-            incident.setHappenInAddress(profile.getAddress());
-        }
-        return incidentRepository.save(incident);
+    public Incident create(IncidentRequest incidentRequest) {
+        Profile profile = profileService.findOne(incidentRequest.getProfileId());
+        return incidentRepository.save(new Incident(incidentRequest, profile));
     }
 
-    public IncidentInfo findOne(String incidentId) {
+    public Incident findOne(String incidentId) {
         return incidentRepository.findById(incidentId)
-                .map(incident -> new IncidentInfo(incident, profileService.findOne(incident.getProfileId())))
                 .orElseThrow(() -> new ObjectNotFoundException(incidentId));
     }
 
-    public Page<IncidentInfo> findPaginated(int page, int size) {
-        return incidentRepository.findAll(PageRequest.of(page, size))
-                .map(incident -> new IncidentInfo(incident, profileService.findOne(incident.getProfileId())));
+    public Page<Incident> findPaginated(int page, int size) {
+        return incidentRepository.findAll(PageRequest.of(page, size));
+    }
+
+    public void cleanUp() {
+        incidentRepository.deleteAll();
+    }
+
+    public void delete(String id) {
+        incidentRepository.deleteById(id);
     }
 }

@@ -1,8 +1,8 @@
 package com.testname.vriatui.model;
 
-import lombok.Value;
+import lombok.Data;
 
-@Value
+@Data
 public class PatientInfo {
     private String id;
     private String firstName;
@@ -11,6 +11,9 @@ public class PatientInfo {
     private Profile.Gender gender;
     private String diseases;
     private String rhesusFactor;
+
+    public PatientInfo() {
+    }
 
     public PatientInfo(Profile profile) {
         this.id = profile.getId();

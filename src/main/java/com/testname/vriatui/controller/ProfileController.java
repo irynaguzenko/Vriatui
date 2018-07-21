@@ -24,4 +24,14 @@ public class ProfileController {
     public Profile get(@RequestParam("id") String profileId) {
         return profileService.findOne(profileId);
     }
+
+    @DeleteMapping
+    public void cleanUp() {
+        profileService.cleanUp();
+    }
+
+    @DeleteMapping(params = {"id"})
+    public void deleteById(@RequestParam("id") String id) {
+        profileService.delete(id);
+    }
 }

@@ -3,6 +3,7 @@ package com.testname.vriatui.configuration;
 import com.testname.vriatui.repository.IncidentRepository;
 import com.testname.vriatui.repository.ProfileRepository;
 import com.testname.vriatui.service.IncidentService;
+import com.testname.vriatui.service.LocationResolver;
 import com.testname.vriatui.service.ProfileService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,12 +22,17 @@ public class ServiceConfiguration {
     }
 
     @Bean
+    public LocationResolver locationResolver() {
+        return new LocationResolver();
+    }
+
+    @Bean
     public IncidentService incidentService(ProfileService profileService) {
         return new IncidentService(incidentRepository, profileService);
     }
 
     @Bean
-    public ProfileService profileService() {
-        return new ProfileService(profileRepository);
+    public ProfileService profileService(LocationResolver locationResolver) {
+        return new ProfileService(profileRepository, locationResolver);
     }
 }
