@@ -21,8 +21,8 @@ public class ServiceConfiguration {
     }
 
     @Bean
-    public IncidentService incidentService() {
-        return new IncidentService(incidentRepository, profileRepository);
+    public IncidentService incidentService(ProfileService profileService) {
+        return new IncidentService(incidentRepository, profileService);
     }
 
     @Bean

@@ -1,5 +1,6 @@
 package com.testname.vriatui.controller;
 
+import com.testname.vriatui.model.IdResponse;
 import com.testname.vriatui.model.Profile;
 import com.testname.vriatui.service.ProfileService;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,8 @@ public class ProfileController {
     }
 
     @PostMapping
-    public Profile create(@RequestBody Profile profile) {
-        return profileService.create(profile);
+    public IdResponse create(@RequestBody Profile profile) {
+        return new IdResponse(profileService.create(profile).getId());
     }
 
     @GetMapping

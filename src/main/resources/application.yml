@@ -1,6 +1,6 @@
 spring:
   data:
     mongodb:
-      database: vriatui_db
-      username: vriatui_user
-      password: vriatui_PwDD
+      uri: ${MONGODB_URI:mongodb://localhost:27017/vriatui_db}
+server:
+  port: ${PORT:8080}
