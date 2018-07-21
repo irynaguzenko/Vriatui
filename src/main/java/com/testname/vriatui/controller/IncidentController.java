@@ -1,10 +1,13 @@
 package com.testname.vriatui.controller;
 
+import com.testname.vriatui.model.IdResponse;
 import com.testname.vriatui.model.Incident;
+import com.testname.vriatui.model.IncidentInfo;
 import com.testname.vriatui.service.IncidentService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/incident")
 public class IncidentController {
@@ -15,17 +18,18 @@ public class IncidentController {
     }
 
     @PostMapping
-    public String create(@RequestBody Incident incident) {
-        return incidentService.create(incident);
+    public IdResponse create(@RequestBody Incident incident) {
+        return new IdResponse(incidentService.create(incident).getId());
     }
 
-    @GetMapping
-    public Incident get(@RequestParam("id") String incidentId) {
+    @GetMapping(params = {"id"})
+    public IncidentInfo get(@RequestParam("id") String incidentId) {
         return incidentService.findOne(incidentId);
     }
 
-    @GetMapping(params = {"page", "size"})
-    public Page<Incident> getAllIncidents(@RequestParam("page") int page, @RequestParam("size") int size) {
+    @GetMapping
+    public Page<IncidentInfo> getAllIncidents(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+                                              @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
         return incidentService.findPaginated(page, size);
     }
 }

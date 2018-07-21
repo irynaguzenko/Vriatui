@@ -3,22 +3,22 @@ package com.testname.vriatui.model;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 @Data
 public class Profile {
     @Id
-    String id;
-    String firstName;
-    String lastName;
-    Integer yearOfBirth;
-    Gender gender;
-    String diseases;
-    Set<String> phonesToNotify;
-    Address address;
+    private String id;
+    private String firstName;
+    private String lastName;
+    private Integer yearOfBirth;
+    private Gender gender;
+    private String diseases;
+    private Set<String> phonesToNotify;
+    private Address address;
+    private String rhesusFactor;
 
     enum Gender {
-        MALE, FEEMALE
+        MALE, FEMALE
     }
 }
