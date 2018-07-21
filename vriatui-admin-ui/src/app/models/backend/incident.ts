@@ -1,5 +1,4 @@
-import { Profile } from "./backend/profile";
-import { Address } from "./backend/address";
+import { Address } from "./address";
 
 export class Incident {
     id: string;
@@ -7,8 +6,4 @@ export class Incident {
     happenInAddress: Address;
     problem : string;
     happenAt: Date; //LocalDateTime
-    profile : Profile;
-
-    constructor() {
-    }
 }
