@@ -13,7 +13,7 @@ export class IncidentsDataSource implements DataSource<Incident>{
     public loading$ = this.loadingSubject.asObservable();
 
     totalItems : number;
-    pageSize : number = 10;
+    pageSize : number = 15;
 
     constructor(private service: IncidentsService){
     }
