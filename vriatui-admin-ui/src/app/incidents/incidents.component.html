@@ -1,5 +1,6 @@
-<ul>
-  <li *ngFor="let item of model.items; let i = index">
+<div>
+  <div *ngFor="let item of model.items; let i = index"
+      class="row">
     <app-incident [model]="item"></app-incident>
-  </li>
-</ul>
+  </div>
+</div>
