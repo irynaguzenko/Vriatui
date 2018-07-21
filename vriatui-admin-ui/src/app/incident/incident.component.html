@@ -1,26 +1,26 @@
 <div *ngIf="!isExpanded" class="row incidents-block">
-    <div class="col-sm-3">{{model.happenInAddress == null ? model.location : model.happenInAddress.value}}</div>
+    <div class="col-sm-3">{{model.address == null ? model.location : model.address.value}}</div>
     <div class="col-sm-1">{{model.problem}}</div>
-    <div class="col-sm-3">{{model.profile.diseases}}</div>
-    <div class="col-sm-1">{{model.profile.yearOfBirth}}</div>
-    <div class="col-sm-1">{{model.profile.gender == 0 ? "Male" : "Female"}}</div>
+    <div class="col-sm-3">{{model.patientInfo.diseases}}</div>
+    <div class="col-sm-1">{{model.patientInfo.yearOfBirth}}</div>
+    <div class="col-sm-1">{{model.patientInfo.gender == 0 ? "Male" : "Female"}}</div>
     <div class="col-sm-1"><button class="btn btn-secondary" (click)="expand()">Expand</button></div>
 </div>
 <div *ngIf="isExpanded" class="row incidents-block">
     <div class="col-sm-12">
       <div class="row">
           <div class="col-sm-3">Problem: {{model.problem}}</div>
-          <div class="col-sm-8">Chronical diseases: {{model.profile.diseases}}</div>
+          <div class="col-sm-8">Chronical diseases: {{model.patientInfo.diseases}}</div>
           <div class="col-sm-1"><button class="btn btn-secondary" (click)="expand()">Collapse</button></div>
       </div>
       <div class="row">
-        <div class="col-sm-6">Name: {{model.lastName + ", " + model.firstName}}</div>
-          <div class="col-sm-3">Age: {{model.profile.yearOfBirth}}</div>
-          <div class="col-sm-3">Gender: {{model.profile.gender == 0 ? "Male" : "Female"}}</div>
+        <div class="col-sm-6">Name: {{model.patientInfo.lastName + ", " + model.patientInfo.firstName}}</div>
+          <div class="col-sm-3">Age: {{model.patientInfo.yearOfBirth}}</div>
+          <div class="col-sm-3">Gender: {{model.patientInfo.gender == 0 ? "Male" : "Female"}}</div>
       </div>
       <div class="row">
-          <div class="col-sm-6">Location: {{model.happenInAddress == null ? model.location : model.happenInAddress.value}}</div>
-          <div class="col-sm-6">Comment: {{model.happenInAddress.comment}}</div>
+          <div class="col-sm-6">Location: {{model.address == null ? model.location : model.address.value}}</div>
+          <div class="col-sm-6">Comment: {{model.address.comment}}</div>
       </div>
     </div>
 </div>

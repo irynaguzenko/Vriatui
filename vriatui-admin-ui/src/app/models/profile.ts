@@ -1,6 +1,6 @@
 import { Incident } from "./incident";
 import { Address } from "./address";
-import { Genders } from "../enums";
+import { Genders } from "./enums";
 
 export class Profile {
     id: string;
