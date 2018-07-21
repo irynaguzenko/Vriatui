@@ -1,8 +1,13 @@
 package com.testname.vriatui.model;
 
-import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
+import org.springframework.data.annotation.Id;
 
 public class Address {
+    @Id
+    String id;
+    String city;
     String value;
-    GeoJsonPoint location;
+    String comment;
+    Integer entrance;
+    Integer floor;
 }
