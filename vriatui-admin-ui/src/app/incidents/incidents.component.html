@@ -1,6 +1,12 @@
-<div>
-  <div *ngFor="let item of model.items; let i = index"
-      class="row">
-    <app-incident [model]="item"></app-incident>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-3 text-info">Address</div>
+      <div class="col-sm-1 text-info">Problem</div>
+      <div class="col-sm-3 text-info">Chronical diseases</div>
+      <div class="col-sm-1 text-info">Age</div>
+      <div class="col-sm-1 text-info">Gender</div>
   </div>
+  <ng-container *ngFor="let item of model.items; let i = index">
+    <app-incident [model]="item"></app-incident>
+  </ng-container>
 </div>
