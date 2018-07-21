@@ -1,6 +1,5 @@
 package com.testname.vriatui.controller;
 
-import com.testname.vriatui.dto.ProfileDto;
 import com.testname.vriatui.model.Profile;
 import com.testname.vriatui.service.ProfileService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,7 @@ public class ProfileController {
     }
 
     @PostMapping
-    public Profile create(ProfileDto profileDto) {
-        return profileService.create(profileDto);
+    public Profile create(Profile profile) {
+        return profileService.create(profile);
     }
 }

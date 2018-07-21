@@ -5,7 +5,7 @@ import com.testname.vriatui.model.Profile;
 
 public class ProfileService {
 
-    public Profile create(ProfileDto profileDto) {
+    public Profile create(Profile profileDto) {
         return new Profile();
     }
 }
