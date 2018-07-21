@@ -1,0 +1,3 @@
+class Incident {
+    location: string
+}
