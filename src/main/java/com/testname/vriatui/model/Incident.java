@@ -12,6 +12,8 @@ public class Incident {
     String id;
     GeoJsonPoint location;
     Address happenInAddress;
+    Boolean happenAtHome;
     String problem;
     LocalDateTime happenAt;
+    String profileId;
 }
