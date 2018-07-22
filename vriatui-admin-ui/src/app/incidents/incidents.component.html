@@ -31,7 +31,12 @@
 
     <ng-container matColumnDef="location">
         <th mat-header-cell *matHeaderCellDef> Location </th>
-        <td mat-cell *matCellDef="let element"> {{element.address?.location == null ? "" : "x: " + element.address?.location.x + ", y: " + element.address?.location.y }}</td>
+        <td mat-cell *matCellDef="let element">
+            <a href="http://www.google.com/maps/place/{{element.address?.location.x}},{{element.address?.location.y}}"
+                target="_blank">
+                Location
+            </a>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
