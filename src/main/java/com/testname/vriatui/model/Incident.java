@@ -2,7 +2,6 @@ package com.testname.vriatui.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
 import java.time.LocalDateTime;
 
@@ -10,10 +9,20 @@ import java.time.LocalDateTime;
 public class Incident {
     @Id
     private String id;
-    private GeoJsonPoint location;
-    private Address happenInAddress;
-    private boolean happenAtHome;
+    private Address address;
     private String problem;
     private LocalDateTime happenAt;
-    private String profileId;
+    private PatientInfo patient;
+
+    public Incident() {
+    }
+
+    public Incident(IncidentRequest incidentRequest, Profile profile) {
+        this.address = incidentRequest.isHappenAtHome()
+                ? profile.getAddress()
+                : new Address(incidentRequest.getLocation());
+        this.happenAt = LocalDateTime.now();
+        this.problem = incidentRequest.getProblem();
+        this.patient = new PatientInfo(profile);
+    }
 }
