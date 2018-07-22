@@ -13,7 +13,7 @@ import { Observable, interval } from '../../../node_modules/rxjs';
 })
 export class IncidentsComponent implements OnInit {
   dataSource : IncidentsDataSource;
-  displayedColumns= ["address", "name", "problem", "gender", "diseases", "yearOfBirth", "location" ];
+  displayedColumns= ["address", "problem", "yearOfBirth", "gender", "diseases", "name"  ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -36,5 +36,9 @@ export class IncidentsComponent implements OnInit {
     this.paginator.page
       .pipe(tap(() => this.dataSource.loadData(this.paginator.pageIndex)))
       .subscribe();
+  }
+
+  getAge(yearOfBirth : number){
+    return new Date(Date.now()).getFullYear() - yearOfBirth;
   }
 }
